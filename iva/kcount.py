@@ -88,6 +88,7 @@ def _run_kmc_with_script(script, reads, outfile, kmer, min_count, max_count, m_o
     else:
         print(' > /dev/null', file=f)
 
+    print('ulimit -n 4096', file=f)
     print('kmc_dump', 'kmc_out', 'kmc_out.dump', file=f)
     print('sort -k2nr', 'kmc_out.dump >', outfile, file=f)
     pyfastaq.utils.close(f)
